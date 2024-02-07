@@ -14,10 +14,12 @@
         <table class="table table-striped">
         <thead>
             <tr>
-            <th scope="col">#</th>
-            <th scope="col">Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Password</th>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Password</th>
+                <th scope="col">Insert date</th>
+                <th scope="col">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -27,6 +29,11 @@
                     <td>{{ $user->user_name }}</td>
                     <td>{{ $user->user_email }}</td>
                     <td>{{ $user->user_password }}</td>
+                    <td>{{ $user->insert_date }}</td>
+                    <td>
+                        <button type="button" class="btn btn-success">Edit</button>
+                        <button type="button" class="btn btn-danger">Delete</button>
+                    </td>
                 </tr>
             @endforeach
         </tbody>

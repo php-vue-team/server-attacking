@@ -18,6 +18,7 @@ class userController extends Controller
         $user->user_name = $request->name;
         $user->user_email = $request->email;
         $user->user_password = $request->pswd;
+        $user->insert_date = date('Y-m-d H:i:s');
         $user->save();
         $users = user::all();
         return redirect()->route('user#list');

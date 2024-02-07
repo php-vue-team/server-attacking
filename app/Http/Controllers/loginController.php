@@ -14,12 +14,12 @@ class loginController extends Controller
         Log::info("===========Login==================");
 
         $email = $request->input('email');
-        $password = $request->input('pwd');
+        $password = $request->input('pswd');
 
-        $sql = "select * from user where user_email='".$email."' and user_password='".$password."'";
+        $sql = "select * from user where user_email=".$email." and user_password='".$password."'";
+        Log::info($sql);
         $user = DB::select($sql);
         
-        Log::info($sql);
 
         if (count($user) == 0) {
             echo "Authentication fail!!!";

@@ -16,7 +16,7 @@ class loginController extends Controller
         $email = $request->input('email');
         $password = $request->input('pswd');
 
-        $sql = "select * from user where user_email=".$email." and user_password='".$password."'";
+        $sql = "select * from user where user_email='".$email."' and user_password='".$password."'";
         Log::info($sql);
         $user = DB::select($sql);
         

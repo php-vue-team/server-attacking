@@ -24,3 +24,11 @@ Route::post('/login', [loginController::class, 'loginUser'])->name('user#login')
 Route::view('/user/register', 'register')->name('user#showRegistForm');
 Route::post('/user/register', [userController::class, 'registUser'])->name('user#register');
 Route::get('/user/list', [userController::class, 'listUser'])->name('user#list');
+
+Route::view('/xss', 'xss')->name('xss');
+
+Route::view('/order', 'order')->name('csrf#order');
+Route::post('/orderComplete', [registerController::class, 'order'])->name('orderComplete');
+
+Route::view('/orderAttack', 'orderAttack')->name('csrf#orderAttack');
+

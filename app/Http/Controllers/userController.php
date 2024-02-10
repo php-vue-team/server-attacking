@@ -14,10 +14,11 @@ class userController extends Controller
         Log::info("===========registUser==================");
 
         $user = new User;
- 
         $user->user_name = $request->name;
         $user->user_email = $request->email;
         $user->user_password = $request->pswd;
+        $user->salary = $request->salary;
+        $user->comment = $request->comment;
         $user->insert_date = date('Y-m-d H:i:s');
         $user->save();
         $users = user::all();
@@ -30,6 +31,6 @@ class userController extends Controller
         
         $user = new User;
         $users = user::all();
-        return view('list')->with('users', $users);
+        return view('user_list')->with('users', $users);
     }
 }

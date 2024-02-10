@@ -3,32 +3,26 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\userController;
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Http\Middleware\AuthMiddleware;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
+// login
 Route::view('/login', 'login')->name('user#showLoginForm');
 Route::post('/login', [loginController::class, 'loginUser'])->name('user#login');
+Route::post('/logout', [loginController::class, 'logoutUser'])->name('user#logout');
 
+// user
 Route::view('/user/register', 'register')->name('user#showRegistForm');
 Route::post('/user/register', [userController::class, 'registUser'])->name('user#register');
-Route::get('/user/list', [userController::class, 'listUser'])->name('user#list');
+Route::middleware([AuthMiddleware::class])->group(function () {
+    Route::get('/user/list', [userController::class, 'listUser'])->name('user#list');
+});
 
 Route::view('/xss', 'xss')->name('xss');
 
 Route::view('/order', 'order')->name('csrf#order');
 Route::post('/orderComplete', [registerController::class, 'order'])->name('orderComplete');
-
 Route::view('/orderAttack', 'orderAttack')->name('csrf#orderAttack');
-

@@ -33,4 +33,12 @@ class userController extends Controller
         $users = user::all();
         return view('user_list')->with('users', $users);
     }
+
+    public function detailUser($id)
+    {
+        Log::info("===========listUser==================");
+        
+        $user = user::where('user_id', $id)->first();
+        return view('user_detail')->with('user', $user);
+    }
 }

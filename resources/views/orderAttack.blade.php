@@ -1,76 +1,46 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        /* Full-width input fields */
-        input[type=text], input[type=password] {
-        width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        box-sizing: border-box;
-        }
+@extends('layouts.app')
 
-        /* Set a style for all buttons */
-        button {
-        background-color: #4CAF50;
-        color: white;
-        padding: 14px 20px;
-        margin: 8px 0;
-        border: none;
-        cursor: pointer;
-        width: 10%;
-        }
-
-        button:hover {
-        opacity: 0.8;
-        }
-
-
-        /* Center the image and position the close button */
-        .imgcontainer {
-        text-align: center;
-        margin: 24px 0 12px 0;
-        position: relative;
-        }
-
-        img.avatar {
-        width: 20%;
-        border-radius: 50%;
-        }
-    </style>
-</head>
-<body>
-
-<div>
-  <form action="{{ route('orderComplete') }}" method="POST" role="form">
-    <div class="imgcontainer">
-      <img src="img_avatar2.png" alt="Avatar" class="avatar">
-      <h2> Byer's information </h2>
-    </div>
-
-    <div class="container">
-      <label for="uname"><b>Name</b></label>
-      <input type="text" placeholder="Enter Username" name="name2" required>
-      <input type="hidden" placeholder="Enter Username" name="name" value="CSRF user Name">
-    <div class="container">
-
-      <label for="uname"><b>Address</b></label>
-      <input type="text" placeholder="Enter Address" name="address2" required>
-      <input type="hidden" placeholder="Enter Address" name="address" value="No1, Baho road, yagon">
-    <div class="container">
-
-      <label for="uname"><b>Phone</b></label>
-      <input type="text" placeholder="Enter Phone" name="phone2" required>
-      <input type="hidden" placeholder="Enter Phone" name="phone" value="091234567">
-        
-      <button type="submit">Order</button>
-    </div>
-
-  </form>
+@section('content')
+  <div class="container mt-3">
+    <form action="{{ route('order#complete') }}" method="POST" role="form">
+      <div class="imgcontainer">
+        <img src="img_avatar2.png" alt="Avatar" class="avatar">
+        <h2> Byer's information </h2>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Name</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" name="name1" placeholder="Name">
+          <input type="hidden" class="form-control" name="name" value="CSRF user Name">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" name="email1" placeholder="Email">
+          <input type="hidden" class="form-control" name="email" value="CSRF user Email">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Address</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" name="address1" placeholder="Address">
+          <input type="hidden" class="form-control" name="address" value="CSRF user Address">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Phone</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" name="phone1" placeholder="Phone">
+          <input type="hidden" class="form-control" name="phone" value="CSRF user Phone">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-10">
+          <button type="submit" class="btn btn-primary">Purchase</button>
+        </div>
+      </div>
+    </form>
 </div>
-
-</body>
-</html>
+@endsection

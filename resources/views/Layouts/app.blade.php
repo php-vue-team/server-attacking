@@ -18,6 +18,19 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+        /* Center the image and position the close button */
+        .imgcontainer {
+        text-align: center;
+        margin: 24px 0 12px 0;
+        position: relative;
+        }
+
+        img.avatar {
+        width: 20%;
+        border-radius: 50%;
+        }
+    </style>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">

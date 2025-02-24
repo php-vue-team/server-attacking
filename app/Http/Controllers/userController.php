@@ -41,4 +41,9 @@ class userController extends Controller
         $user = user::where('user_id', $id)->first();
         return view('user_detail')->with('user', $user);
     }
+
+    public function xss()
+    {
+        return view('sha');
+    }
 }

